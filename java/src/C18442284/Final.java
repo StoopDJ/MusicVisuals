@@ -74,6 +74,13 @@ public class Final extends Visual {
         {
             cubes [i] =  new  Cube ();
         }
+        
+        // Create the wall objects
+        // Left walls
+        for ( int i =  0 ; i < nbWalls; i += 4 ) 
+        {
+            walls [i] =  new  Wall ( 0 , height / 2 , 10 , height );
+        }
 
         colorMode(HSB);
         noCursor();
@@ -164,6 +171,10 @@ public class Final extends Visual {
         // Position values
         float x, y, z;
         float sizeX, sizeY;
+
+        //constructor for wall class
+        public Wall(int i, int j, int k, int height) {
+        }
 
         // Builder
         void Wall(float x, float y, float sizeX, float sizeY)

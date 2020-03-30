@@ -101,7 +101,7 @@ public class Final extends Visual {
         song . play ( 0 );
     }
     public void draw() {
-        
+
                 
         // Advance the song. We draw () for each "frame" of the song ...
         fft . forward (song . mix);
@@ -115,7 +115,23 @@ public class Final extends Visual {
         // Reset values
         scoreLow =  0 ;
         scoreMid =  0 ;
-        scoreHi =  0 ;
+        scoreHi =  0 ; 
+
+         // Calculate the new "scores"
+        for ( int i =  0 ; i < fft . specSize () * specLow; i ++ )
+        {
+            scoreLow += fft . getBand (i);
+        }
+        
+        for ( int i = ( int ) (fft . specSize () * specLow); i < fft . specSize () * specMid; i ++ )
+        {
+            scoreMid += fft . getBand (i);
+        }
+        
+        for ( int i = ( int ) (fft . specSize () * specMid); i < fft . specSize () * specHi; i ++ )
+        {
+            scoreHi += fft . getBand (i);
+        }
 
 
     }

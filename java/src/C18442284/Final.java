@@ -4,7 +4,7 @@ import ddf.minim.AudioPlayer;
 import ddf.minim.analysis.*;
 import ddf.minim.*;
 import ie.tudublin.Visual;
-import javafx.scene.paint.Color;
+
 
 public class Final extends Visual {
 
@@ -42,17 +42,8 @@ public class Final extends Visual {
     Wall [] walls;
 
     public void settings() {
-        // size(800, 800, P3D);
-        fullScreen(P3D, SPAN);
-    }
-
-    public void keyPressed() {
-        if (key == ' ') {
-            getAudioPlayer().cue(0);
-            getAudioPlayer().play();
-
-        }
-
+        size(800, 800, P3D);
+        //fullScreen(P3D, SPAN);
     }
 
     public void setup() {
@@ -61,7 +52,7 @@ public class Final extends Visual {
         noCursor();
 
         setFrameSize(256);
-        
+
         minim = new Minim(this);
 
         song = minim.loadFile("Visuals.mp3");

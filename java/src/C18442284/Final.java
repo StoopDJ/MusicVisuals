@@ -145,4 +145,18 @@ public class Final extends Visual {
             }
         }
     }
+
+    class wall
+    {
+        
+        // Minimum and maximum position Z
+        float startingZ =  - 10000 ;
+        float maxZ =  50 ;
+        
+        // Position values
+        float x, y, z;
+        float sizeX, sizeY;
+
+
+    }
 }

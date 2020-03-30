@@ -56,6 +56,12 @@ public class Final extends Visual {
     }
 
     public void setup() {
+
+        colorMode(HSB);
+        noCursor();
+
+        setFrameSize(256);
+        
         minim = new Minim(this);
 
         song = minim.loadFile("Visuals.mp3");
@@ -92,11 +98,19 @@ public class Final extends Visual {
             walls [i] =  new  Wall ( width / 2 , height , width , 10 );
         }
 
-        colorMode(HSB);
-        noCursor();
-
-        setFrameSize(256);
+          // High walls
+        for ( int i =  3 ; i < nbWalls; i += 4 ) {
+            walls [i] =  new  Wall ( width / 2 , 0 , width , 10 );
+        }
+        
+        // Black background
+       // background ( 0 );
+        
+        // Start the song
+        song . play ( 0 );
     }
+  
+
 
     public void draw() {
 

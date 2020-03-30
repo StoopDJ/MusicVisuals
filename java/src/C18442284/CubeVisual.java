@@ -1,31 +1,29 @@
 package C18442284;
 
+import ddf.minim.AudioPlayer;
 import ie.tudublin.Visual;
 
-public class CubeVisual extends Visual
-{
+public class CubeVisual extends Visual {
     boolean twocubes = false;
 
-    public void settings()
-    {
-        //size(800, 800, P3D);
+    public void settings() {
+        // size(800, 800, P3D);
         fullScreen(P3D, SPAN);
     }
 
-    public void keyPressed()
-    {
-        if (key == ' ')
-        {
+    public void keyPressed() {
+        if (key == ' ') {
             getAudioPlayer().cue(0);
             getAudioPlayer().play();
-            
-        }
-        if (key == '1')
-        {
-            twocubes = ! twocubes;
 
         }
+        if (key == '1') {
+            twocubes = !twocubes;
+
+        }
+
     }
+
 
     public void setup()
     {
@@ -54,7 +52,8 @@ public class CubeVisual extends Visual
         translate(0, 0, -250);
                
         float boxSize = 50 + (getAmplitude() * 300);//map(average, 0, 1, 100, 400); 
-        smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.2f);        
+        smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.2f);     
+
         if (twocubes)
         {
             pushMatrix();
@@ -86,4 +85,6 @@ public class CubeVisual extends Visual
         angle += 0.01f;
     }
     float angle = 0;
+
+    
 }

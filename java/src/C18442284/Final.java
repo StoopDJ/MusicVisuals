@@ -93,5 +93,18 @@ public class Final extends Visual
         float rotX, rotY, rotZ;
         float sumRotX, sumRotY, sumRotZ;
 
+        // Builder
+        Cube ()
+        {
+            // Make the cube appear at a random location
+            x =  random ( 0 , width );
+            y =  random ( 0 , height );
+            z =  random (startingZ, maxZ);
+            
+            // Give the cube a random rotation
+            rotX =  random ( 0 , 1 );
+            rotY =  random ( 0 , 1 );
+            rotZ =  random ( 0 , 1 );
+        }
     }
 }

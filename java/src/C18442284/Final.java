@@ -100,10 +100,23 @@ public class Final extends Visual {
         // Start the song
         song . play ( 0 );
     }
-  
-
-
     public void draw() {
+        
+                
+        // Advance the song. We draw () for each "frame" of the song ...
+        fft . forward (song . mix);
+        
+        // Calculation of "scores" (power) for three categories of sound
+        // First, save the old values
+        oldScoreLow = scoreLow;
+        oldScoreMid = scoreMid;
+        oldScoreHi = scoreHi;
+        
+        // Reset values
+        scoreLow =  0 ;
+        scoreMid =  0 ;
+        scoreHi =  0 ;
+
 
     }
 

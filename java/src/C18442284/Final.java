@@ -34,7 +34,7 @@ public class Final extends Visual {
     float scoreDecreaseRate = 25;
 
     // Cubes that appear in space
-    int nbCube;
+    int nbCubes;
     Cube[] cubes;
 
     // Lines that appear on the sides
@@ -62,10 +62,18 @@ public class Final extends Visual {
 
         fft = new FFT(song.bufferSize(), song.sampleRate());
 
-        nbCube = (int) (fft.specSize() * specHi);
-        cubes = new Cube[nbCube];
+        nbCubes = (int) (fft.specSize() * specHi);
+        cubes = new Cube[nbCubes];
 
         walls= new Wall[nbWalls];
+
+
+        // Create all objects
+        // Create the cube objects
+        for ( int i =  0 ; i < nbCubes; i ++ )
+        {
+            cubes [i] =  new  Cube ();
+        }
 
         colorMode(HSB);
         noCursor();

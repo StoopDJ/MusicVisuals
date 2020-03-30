@@ -54,6 +54,14 @@ public class Final extends Visual
 
         song = minim.loadFile("Visuals.mp3");
 
+        fft = new FFT(song.bufferSize(), song.sampleRate());
+
+
+        nbCube = (int)(fft.specSize()*specHi);
+        cubes = new Cube[nbCube];
+
+        murs = new Mur[nbMurs];
+
         colorMode(HSB);
         noCursor();
         

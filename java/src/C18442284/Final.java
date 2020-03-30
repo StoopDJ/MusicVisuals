@@ -81,6 +81,11 @@ public class Final extends Visual {
         {
             walls [i] =  new  Wall ( 0 , height / 2 , 10 , height );
         }
+          // Straight walls
+        for ( int i =  1 ; i < nbWalls; i += 4 ) 
+        {
+            walls [i] =  new  Wall ( width , height / 2 , 10 , height );
+        }
 
         colorMode(HSB);
         noCursor();

@@ -38,8 +38,8 @@ public class Final extends Visual {
     Cube[] cubes;
 
     // Lines that appear on the sides
-    int nbMurs = 500;
-    Mur[] murs;
+    int nbWalls = 500;
+    Wall [] walls;
 
     public void settings() {
         // size(800, 800, P3D);
@@ -65,7 +65,7 @@ public class Final extends Visual {
         nbCube = (int) (fft.specSize() * specHi);
         cubes = new Cube[nbCube];
 
-        murs = new Mur[nbMurs];
+        walls= new Wall[nbWalls];
 
         colorMode(HSB);
         noCursor();
@@ -104,7 +104,7 @@ public class Final extends Visual {
         }
         void  display ( float  scoreLow , float  scoreMid , float  scoreHi , float  intensity , float  scoreGlobal ) {
             // Color selection, opacity determined by intensity (volume of the strip)
-            int displayColor = color (intensity * 5 );
+            int displayColor = color (scoreLow * 0.67 , scoreMid * 0.67 , scoreHi * 0.67 , intensity * 5 );
             fill (displayColor, 255 );
             
             // Color lines, they disappear with the individual intensity of the cube
@@ -146,9 +146,9 @@ public class Final extends Visual {
         }
     }
 
-    class wall
+    class Wall
     {
-        
+
         // Minimum and maximum position Z
         float startingZ =  - 10000 ;
         float maxZ =  50 ;
@@ -157,6 +157,70 @@ public class Final extends Visual {
         float x, y, z;
         float sizeX, sizeY;
 
-
+        // Builder
+        void Wall(float x, float y, float sizeX, float sizeY)
+        {
+            // Make the line appear at the specified location
+            this . x = x;
+            this . y = y;
+            // Random depth
+            this . z =  random (startingZ, maxZ);  
+            
+            // We determine the size because the walls on the floors have a different size than those on the sides
+            this . sizeX = sizeX;
+            this . sizeY = sizeY;
+        }
+         // Display function
+        void  display ( float  scoreLow , float  scoreMid , float  scoreHi , float  intensity , float  scoreGlobal ) {
+            // Color determined by low, medium and high tones
+            // Opacity determined by the overall volume
+            int displayColor =  color (scoreLow * 0.67 , scoreMid * 0.67 , scoreHi * 0.67 , scoreGlobal);
+            
+            // Make the lines disappear in the distance to give an illusion of fog
+            fill (displayColor, ((scoreGlobal - 5 ) / 1000 ) * ( 255 + (z / 25 )));
+            noStroke ();
+            
+            // First band, the one that moves according to the force
+            // Transformation matrix
+            pushMatrix ();
+            
+            // Displacement
+            translate (x, y, z);
+            
+            // Enlargement
+            if (intensity >  100 ) intensity =  100 ;
+            scale (sizeX * (intensity / 100 ), sizeY * (intensity / 100 ), 20 );
+            
+            // Creation of the "box"
+            box ( 1 );
+            popMatrix ();
+            
+            // Second strip, the one that is always the same size
+            displayColor =  color (scoreLow * 0.5 , scoreMid * 0.5 , scoreHi * 0.5 , scoreGlobal);
+            fill (displayColor, (scoreGlobal / 5000 ) * ( 255 + (z / 25 )));
+            // Transformation matrix
+            pushMatrix ();
+            
+            // Displacement
+            translate (x, y, z);
+            
+            // Enlargement
+            scale (sizeX, sizeY, 10 );
+            
+            // Creation of the "box"
+            box ( 1 );
+            popMatrix ();
+            
+            // Move Z
+            z += ( pow ((scoreGlobal / 150 ), 2 ));
+            if (z >= maxZ) {
+            z = startingZ;  
+            }
+        }
     }
+   
+
+	public int color(double d, double e, double f, float g) {
+		return 0;
+	}
 }

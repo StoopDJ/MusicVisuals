@@ -162,10 +162,29 @@ public class Final extends Visual {
            // Value of the frequency band
             float bandValue = fft . getBand (i);
             
-            //The color is represented as follows red for the bass, green for the medium sounds and blue for the highs.
+           //The color is represented as follows red for the bass, green for the medium sounds and blue for the highs.
            // Opacity is determined by the volume of the strip and the overall volume.
             cubes [i] . display (scoreLow, scoreMid, scoreHi, bandValue, scoreGlobal);
         }
+
+        //Walls lines, here we must keep the value of the previous band and the next one to connect them together
+        float previousBandValue = fft . getBand ( 0 );
+            
+        //Distance between each line point, negative because on the z dimension
+        float dist =  - 25 ;
+            
+        //Multiply the height by this constant
+        float heightMult =  2 ;
+
+        //For each band
+        for ( int i =  1 ; i < fft.specSize (); i ++ )
+        {
+           //Value of the frequency band, we multiply the bands farther away so that they are more visible.
+            float bandValue = fft . getBand (i) * ( 1  + (i * 50 ));
+            
+            //Color selection according to the strengths of the different types of sounds
+            stroke ( 100 + scoreLow, 100 + scoreMid, 100 + scoreHi, 255 - i);
+            strokeWeight ( 1  + (scoreGlobal * 100 ));
 
 
     }

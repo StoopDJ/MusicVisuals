@@ -186,6 +186,8 @@ public class Final extends Visual {
             stroke ( 100 + scoreLow, 100 + scoreMid, 100 + scoreHi, 255 - i);
             strokeWeight ( 1  + (scoreGlobal * 100 ));
 
+        }
+
 
     }
 

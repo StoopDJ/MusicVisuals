@@ -30,6 +30,10 @@ public class Final extends Visual {
     float oldScoreMid = scoreMid;
     float oldScoreHi = scoreHi;
 
+    boolean oldScoreLow1 = false;
+    boolean oldScoreMid1 = false;
+    boolean oldScoreHi1 = false;
+
     // Softening value
     float scoreDecreaseRate = 25;
 
@@ -131,6 +135,19 @@ public class Final extends Visual {
         for ( int i = ( int ) (fft . specSize () * specMid); i < fft . specSize () * specHi; i ++ )
         {
             scoreHi += fft . getBand (i);
+        }
+
+        //Slow down the descent.
+        if (oldScoreLow1) {
+          scoreLow = oldScoreLow - scoreDecreaseRate;
+        }
+        
+        if (oldScoreMid1) {
+          scoreMid = oldScoreMid - scoreDecreaseRate;
+        }
+        
+        if (oldScoreHi1) {
+          scoreHi = oldScoreHi - scoreDecreaseRate;
         }
 
 

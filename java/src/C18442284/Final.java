@@ -149,6 +149,23 @@ public class Final extends Visual {
         if (oldScoreHi1) {
           scoreHi = oldScoreHi - scoreDecreaseRate;
         }
+        //Volume for all frequencies at this time, with higher higher sounds.
+        //This allows the animation to go faster for the more acute sounds, which we notice more
+        float scoreGlobal =  (float) (0.66 * scoreLow +  0.8 * scoreMid +  1) * scoreHi;
+        
+        //Subtle background color
+        background (scoreLow, scoreMid, scoreHi);
+        
+        //Cube for each frequency band
+        for ( int i =  0 ; i < nbCubes; i ++ )
+        {
+           // Value of the frequency band
+            float bandValue = fft . getBand (i);
+            
+            //The color is represented as follows red for the bass, green for the medium sounds and blue for the highs.
+           // Opacity is determined by the volume of the strip and the overall volume.
+            cubes [i] . display (scoreLow, scoreMid, scoreHi, bandValue, scoreGlobal);
+        }
 
 
     }

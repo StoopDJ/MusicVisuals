@@ -45,15 +45,15 @@ public class Final extends Visual {
     int nbWalls = 500;
     Wall [] walls;
 
-    public void settings() {
+    public void settings()
+    {
         size(800, 800, P3D);
         //fullScreen(P3D, SPAN);
     }
 
-    public void setup() {
-
-        colorMode(HSB);
-       
+    public void setup() 
+    {
+         
         minim = new Minim(this);
 
         song = minim.loadFile("heroplanet.mp3");
@@ -101,11 +101,13 @@ public class Final extends Visual {
         // Start the song
         song . play ( 0 );
     }
-    public void draw() {
+    public void draw() 
+    {
+        colorMode(HSB, 360, 100, 100);
 
                 
         // Advance the song. We draw () for each "frame" of the song ...
-       fft . forward (song . mix);
+       fft.forward (song . mix);
         
         // Calculation of "scores" (power) for three categories of sound
         // First, save the old values
@@ -121,12 +123,12 @@ public class Final extends Visual {
          // Calculate the new "scores"
         for ( int i =  0 ; i < fft . specSize () * specLow; i ++ )
         {
-            scoreLow += fft . getBand (i);
+            scoreLow += fft.getBand (i);
         }
         
         for ( int i = ( int ) (fft . specSize () * specLow); i < fft . specSize () * specMid; i ++ )
         {
-            scoreMid += fft . getBand (i);
+            scoreMid += fft.getBand (i);
         }
         
         for ( int i = ( int ) (fft . specSize () * specMid); i < fft . specSize () * specHi; i ++ )

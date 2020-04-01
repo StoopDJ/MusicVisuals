@@ -101,14 +101,24 @@ public class Final extends Visual {
         // Start the song
         song . play ( 0 );
     }
+
+    
+    float smoothedBoxSize = 0;
     public void draw() 
     {
+        
         colorMode(HSB, 360, 100, 100);
 
                 
         // Advance the song. We draw () for each "frame" of the song ...
-       fft.forward (song . mix);
-        
+        fft.forward (song . mix);
+
+        stroke(127, 255, 0, 200);
+
+        float boxSize = 50 + (getAmplitude() * 300);//map(average, 0, 1, 100, 400); 
+        smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.2f);     ;
+        box(smoothedBoxSize);
+            
         // Calculation of "scores" (power) for three categories of sound
         // First, save the old values
         oldScoreLow = scoreLow;
@@ -179,11 +189,11 @@ public class Final extends Visual {
         for ( int i =  1 ; i < fft.specSize (); i ++ )
         {
            //Value of the frequency band, we multiply the bands farther away so that they are more visible.
-            float bandValue = fft . getBand (i) * ( 1  + (i * 50 ));
+            float bandValue = fft . getBand (i) - ( 1  + (i - 50 ));
             
             //Color selection according to the strengths of the different types of sounds
-            stroke ( 100 + scoreLow, 100 + scoreMid, 100 + scoreHi, 255 - i);
-            strokeWeight ( 1  + (scoreGlobal * 100 ));
+             stroke ( 100 + scoreLow, 100 + scoreMid, 100 + scoreHi, 255 - i);
+            //strokeWeight ( 1  + (scoreGlobal * 100 ));
 
             
             //lower left line

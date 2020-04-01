@@ -53,10 +53,7 @@ public class Final extends Visual {
     public void setup() {
 
         colorMode(HSB);
-        noCursor();
-
-        setFrameSize(256);
-
+       
         minim = new Minim(this);
 
         song = minim.loadFile("Visuals.mp3");
@@ -212,6 +209,13 @@ public class Final extends Visual {
 
         }
 
+        //Rectangular walls
+        for ( int i =  0 ; i < nbWalls; i ++ )
+        {
+           // We assign a strip to each wall, and send it its strength.
+            float intensity = fft . getBand (i % (( int ) (fft . specSize () * specHi)));
+            walls [i] . display (scoreLow, scoreMid, scoreHi, intensity, scoreGlobal);
+  }
 
     }
 
@@ -320,7 +324,7 @@ public class Final extends Visual {
             
             // Make the lines disappear in the distance to give an illusion of fog
             fill (displayColor, ((scoreGlobal - 5 ) / 1000 ) * ( 255 + (z / 25 )));
-            noStroke ();
+            //noStroke ();
             
             // First band, the one that moves according to the force
             // Transformation matrix

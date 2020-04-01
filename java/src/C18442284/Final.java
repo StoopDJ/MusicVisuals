@@ -56,7 +56,7 @@ public class Final extends Visual {
          
         minim = new Minim(this);
 
-        song = minim.loadFile("heroplanet.mp3");
+        song = minim.loadFile("Lifeform 2034 - Deep Inside (online-audio-converter.com).mp3");
 
         fft = new FFT(song.bufferSize(), song.sampleRate());
 
@@ -103,7 +103,7 @@ public class Final extends Visual {
     }
 
     
-    float smoothedBoxSize = 0;
+ 
     public void draw() 
     {
         
@@ -114,10 +114,6 @@ public class Final extends Visual {
         fft.forward (song . mix);
 
         stroke(127, 255, 0, 200);
-
-        float boxSize = 50 + (getAmplitude() * 300);//map(average, 0, 1, 100, 400); 
-        smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.2f);     ;
-        box(smoothedBoxSize);
             
         // Calculation of "scores" (power) for three categories of sound
         // First, save the old values
@@ -141,7 +137,7 @@ public class Final extends Visual {
             scoreMid += fft.getBand (i);
         }
         
-        for ( int i = ( int ) (fft . specSize () * specMid); i < fft . specSize () * specHi; i ++ )
+        for ( int i = ( int ) (fft . specSize () * specMid); i > fft . specSize () * specHi; i ++ )
         {
             scoreHi += fft . getBand (i);
         }
@@ -189,7 +185,7 @@ public class Final extends Visual {
         for ( int i =  1 ; i < fft.specSize (); i ++ )
         {
            //Value of the frequency band, we multiply the bands farther away so that they are more visible.
-            float bandValue = fft . getBand (i) - ( 1  + (i - 50 ));
+            float bandValue = fft . getBand (i) / 2 * ( 1  + (i - 50));
             
             //Color selection according to the strengths of the different types of sounds
              stroke ( 100 + scoreLow, 100 + scoreMid, 100 + scoreHi, 255 - i);

@@ -186,6 +186,13 @@ public class Final extends Visual {
             stroke ( 100 + scoreLow, 100 + scoreMid, 100 + scoreHi, 255 - i);
             strokeWeight ( 1  + (scoreGlobal * 100 ));
 
+            
+            //lower left line
+            line ( 0 , height - (previousBandValue * heightMult), dist * (i - 1 ), 0 , height - (bandValue * heightMult), dist * i);
+            line ((previousBandValue * heightMult), height , dist * (i - 1 ), (bandValue * heightMult), height , dist * i);
+            line ( 0 , height - (previousBandValue * heightMult), dist * (i - 1 ), (bandValue * heightMult), height , dist * i);
+            
+
         }
 
 

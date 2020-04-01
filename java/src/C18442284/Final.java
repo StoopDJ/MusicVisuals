@@ -56,7 +56,7 @@ public class Final extends Visual {
        
         minim = new Minim(this);
 
-        song = minim.loadFile("Visuals.mp3");
+        song = minim.loadFile("heroplanet.mp3");
 
         fft = new FFT(song.bufferSize(), song.sampleRate());
 
@@ -96,7 +96,7 @@ public class Final extends Visual {
         }
         
         // Black background
-       // background ( 0 );
+        background ( 0 );
         
         // Start the song
         song . play ( 0 );
@@ -105,7 +105,7 @@ public class Final extends Visual {
 
                 
         // Advance the song. We draw () for each "frame" of the song ...
-        fft . forward (song . mix);
+       fft . forward (song . mix);
         
         // Calculation of "scores" (power) for three categories of sound
         // First, save the old values
@@ -324,7 +324,7 @@ public class Final extends Visual {
             
             // Make the lines disappear in the distance to give an illusion of fog
             fill (displayColor, ((scoreGlobal - 5 ) / 1000 ) * ( 255 + (z / 25 )));
-            //noStroke ();
+            noStroke ();
             
             // First band, the one that moves according to the force
             // Transformation matrix

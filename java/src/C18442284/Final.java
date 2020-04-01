@@ -201,6 +201,11 @@ public class Final extends Visual {
             line ( width , height - (previousBandValue * heightMult), dist * (i - 1 ), width , height - (bandValue * heightMult), dist * i);
             line ( width - (previousBandValue * heightMult), height , dist * (i - 1 ), width - (bandValue * heightMult), height , dist * i);
             line ( width , height - (previousBandValue * heightMult), dist * (i - 1 ), width - (bandValue * heightMult), height , dist * i);
+
+            //upper right line
+            line ( width , (previousBandValue * heightMult), dist * (i - 1 ), width , (bandValue * heightMult), dist * i);
+            line ( width - (previousBandValue * heightMult), 0 , dist  * (i - 1 ), width - (bandValue * heightMult), 0 , dist * i);
+            line ( width , (previousBandValue * heightMult), dist * (i - 1 ), width - (bandValue * heightMult), 0 , dist * i);
             
 
         }

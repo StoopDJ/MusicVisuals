@@ -30,9 +30,9 @@ public class Final extends Visual {
     float oldScoreMid = scoreMid;
     float oldScoreHi = scoreHi;
 
-    boolean oldScoreLow1 = false;
-    boolean oldScoreMid1 = false;
-    boolean oldScoreHi1 = false;
+    boolean oldScoreLow1 = oldScoreLow > scoreLow;
+    boolean oldScoreMid1 = oldScoreMid > scoreMid;
+    boolean oldScoreHi1 = oldScoreHi > scoreHi;
 
     // Softening value
     float scoreDecreaseRate = 25;
@@ -47,16 +47,22 @@ public class Final extends Visual {
 
     public void settings()
     {
-        size(800, 800, P3D);
-        //fullScreen(P3D, SPAN);
+       //size(800, 800, P3D);
+       //fullScreen(P3D, SPAN);
+        fullScreen ( P3D );
     }
 
     public void setup() 
     {
-         
+        
+        noCursor();
+        setFrameSize(256);
+        colorMode(HSB, 360, 100, 100);
+               
+
         minim = new Minim(this);
 
-        song = minim.loadFile("Lifeform 2034 - Deep Inside (online-audio-converter.com).mp3");
+        song = minim.loadFile("Dom Dolla - San Frandisco (Eli Brown Extended Remix).mp3");
 
         fft = new FFT(song.bufferSize(), song.sampleRate());
 
@@ -94,24 +100,21 @@ public class Final extends Visual {
         for ( int i =  3 ; i < nbWalls; i += 4 ) {
             walls [i] =  new  Wall ( width / 2 , 0 , width , 10 );
         }
-        
+
         // Black background
         background ( 0 );
-        
+  
         // Start the song
         song . play ( 0 );
     }
 
-    
- 
     public void draw() 
     {
         
-        colorMode(HSB, 360, 100, 100);
-
-                
         // Advance the song. We draw () for each "frame" of the song ...
-        fft.forward (song . mix);
+        fft.window(FFT.HAMMING);
+        fft.forward (song.mix);
+        
 
         stroke(127, 255, 0, 200);
             
@@ -159,7 +162,7 @@ public class Final extends Visual {
         float scoreGlobal =  (float) (0.66 * scoreLow +  0.8 * scoreMid +  1) * scoreHi;
         
         //Subtle background color
-        background (scoreLow, scoreMid, scoreHi);
+        background (scoreLow/100, scoreMid/100, scoreHi/100);
         
         //Cube for each frequency band
         for ( int i =  0 ; i < nbCubes; i ++ )
@@ -176,7 +179,7 @@ public class Final extends Visual {
         float previousBandValue = fft . getBand ( 0 );
             
         //Distance between each line point, negative because on the z dimension
-        float dist =  - 25 ;
+        float dist =  -25 ;
             
         //Multiply the height by this constant
         float heightMult =  2 ;
@@ -185,11 +188,11 @@ public class Final extends Visual {
         for ( int i =  1 ; i < fft.specSize (); i ++ )
         {
            //Value of the frequency band, we multiply the bands farther away so that they are more visible.
-            float bandValue = fft . getBand (i) / 2 * ( 1  + (i - 50));
+            float bandValue = fft . getBand (i) * ( 1  + (i / 50));
             
             //Color selection according to the strengths of the different types of sounds
-             stroke ( 100 + scoreLow, 100 + scoreMid, 100 + scoreHi, 255 - i);
-            //strokeWeight ( 1  + (scoreGlobal * 100 ));
+            stroke ( 100 + scoreLow, 100 + scoreMid, 100 + scoreHi, 255 - i);
+            strokeWeight ( 1  + (scoreGlobal / 100 ));
 
             
             //lower left line
@@ -231,7 +234,7 @@ public class Final extends Visual {
     class Cube
     {
         // Z position of "spawn" and maximum Z position
-        float startingZ =  - 10000 ;
+        float startingZ =  -10000 ;
         float maxZ =  1000 ;
         
         // Position values
@@ -254,7 +257,7 @@ public class Final extends Visual {
         }
         void  display ( float  scoreLow , float  scoreMid , float  scoreHi , float  intensity , float  scoreGlobal ) {
             // Color selection, opacity determined by intensity (volume of the strip)
-            int displayColor = color (scoreLow * 0.67 , scoreMid * 0.67 , scoreHi * 0.67 , intensity * 5 );
+            int displayColor = color (intensity * 10);
             fill (displayColor, 255 );
             
             // Color lines, they disappear with the individual intensity of the cube
@@ -264,7 +267,6 @@ public class Final extends Visual {
             // Creation of a transformation matrix to perform rotations, enlargements
             pushMatrix ();
             
-
             // Displacement
             translate (x, y, z);
             
@@ -300,19 +302,15 @@ public class Final extends Visual {
     {
 
         // Minimum and maximum position Z
-        float startingZ =  - 10000 ;
+        float startingZ =  -10000 ;
         float maxZ =  50 ;
         
         // Position values
         float x, y, z;
         float sizeX, sizeY;
 
-        //constructor for wall class
-        public Wall(int i, int j, int k, int height) {
-        }
-
         // Builder
-        void Wall(float x, float y, float sizeX, float sizeY)
+        Wall(float x, float y, float sizeX, float sizeY)
         {
             // Make the line appear at the specified location
             this . x = x;
@@ -328,7 +326,9 @@ public class Final extends Visual {
         void  display ( float  scoreLow , float  scoreMid , float  scoreHi , float  intensity , float  scoreGlobal ) {
             // Color determined by low, medium and high tones
             // Opacity determined by the overall volume
-            int displayColor =  color (scoreLow * 0.67 , scoreMid * 0.67 , scoreHi * 0.67 , scoreGlobal);
+            
+            int displayColor = color(HSB);
+            
             
             // Make the lines disappear in the distance to give an illusion of fog
             fill (displayColor, ((scoreGlobal - 5 ) / 1000 ) * ( 255 + (z / 25 )));
@@ -350,7 +350,7 @@ public class Final extends Visual {
             popMatrix ();
             
             // Second strip, the one that is always the same size
-            displayColor =  color (scoreLow * 0.5 , scoreMid * 0.5 , scoreHi * 0.5 , scoreGlobal);
+            displayColor =  color (HSB);
             fill (displayColor, (scoreGlobal / 5000 ) * ( 255 + (z / 25 )));
             // Transformation matrix
             pushMatrix ();
@@ -372,9 +372,4 @@ public class Final extends Visual {
             }
         }
     }
-   
-
-	public int color(double d, double e, double f, float g) {
-		return 0;
-	}
 }

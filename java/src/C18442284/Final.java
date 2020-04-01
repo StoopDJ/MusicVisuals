@@ -207,6 +207,8 @@ public class Final extends Visual {
             line ( width - (previousBandValue * heightMult), 0 , dist  * (i - 1 ), width - (bandValue * heightMult), 0 , dist * i);
             line ( width , (previousBandValue * heightMult), dist * (i - 1 ), width - (bandValue * heightMult), 0 , dist * i);
             
+            //Save the value for the next loop
+            previousBandValue = bandValue;
 
         }
 

@@ -115,10 +115,20 @@ public class Final extends Visual {
 
     public void draw() 
     {
-        loop1();
+       // loop1();
        // loop2();
-
+    if (key == '1') {
+        loop1();
+         
+    }else
+    if (key == '2') {
+        loop2();
     }
+
+   
+    }
+
+    
 
     public void loop1()
     {

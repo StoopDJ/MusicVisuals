@@ -45,6 +45,11 @@ public class Final extends Visual {
     int nbWalls = 500;
     Wall [] walls;
 
+    //loop2
+    int CENTRE = 0;
+    int colorscale;  
+    float angle; 
+
     public void settings()
     {
        //size(800, 800, P3D);
@@ -110,6 +115,14 @@ public class Final extends Visual {
 
     public void draw() 
     {
+        //loop1();
+        loop2();
+
+    }
+
+    public void loop1()
+    {
+        
         
         // Advance the song. We draw () for each "frame" of the song ...
         fft.window(FFT.HAMMING);
@@ -226,10 +239,30 @@ public class Final extends Visual {
            // We assign a strip to each wall, and send it its strength.
             float intensity = fft . getBand (i % (( int ) (fft . specSize () * specHi)));
             walls [i] . display (scoreLow, scoreMid, scoreHi, intensity, scoreGlobal);
-  }
-
+        }
     }
 
+    
+
+    public void loop2()
+    {
+        scale(0.5f* map(mouseY, 0, height,0, 10));
+        translate(width/2,height/2);
+        rotate(angle);
+        fill(colorscale,97,100);
+        rectMode(CENTRE);
+        rect(0,0,200,200);
+
+        angle += 5;
+
+        colorscale = (int) (colorscale +1.5);
+
+        if(colorscale > 359)
+        {
+            colorscale = 0;
+        }
+    }
+    
     // Class for cubes floating in space
     class Cube
     {

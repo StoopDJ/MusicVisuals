@@ -256,7 +256,7 @@ public class Final extends Visual {
 
     public void loop2()
     {
-        scale(0.5f* map(mouseY, 0, height,0, 10));
+       // scale(0.5f* map(mouseY, 0, height,0, 10));
         translate(width/2,height/2);
         rotate(angle);
         fill(colorscale,97,100);

@@ -2,6 +2,11 @@ package C18442284;
 
 import ddf.minim.AudioPlayer;
 import ddf.minim.analysis.*;
+
+import C18442284.CubeVisual;
+
+
+
 import ddf.minim.*;
 import ie.tudublin.Visual;
 
@@ -50,11 +55,15 @@ public class Final extends Visual {
     int colorscale;  
     float angle; 
 
+    //loop3
+    float smoothedBoxSize = 0;
+
+
     public void settings()
     {
-       size(800, 800, P3D);
+       //size(800, 800, P3D);
        //fullScreen(P3D, SPAN);
-       // fullScreen ( P3D );
+       fullScreen ( P3D );
     }
 
     public void setup() 
@@ -120,15 +129,18 @@ public class Final extends Visual {
     if (key == '1') {
         loop1();
          
-    }else
+    }
     if (key == '2') {
         loop2();
+    }
+    if (key == '3') {
+        
     }
 
    
     }
 
-    
+ 
 
     public void loop1()
     {
@@ -256,7 +268,8 @@ public class Final extends Visual {
 
     public void loop2()
     {
-       // scale(0.5f* map(mouseY, 0, height,0, 10));
+        // scale(0.5f* map(mouseY, 0, height,0, 10));
+        background(0);
         translate(width/2,height/2);
         rotate(angle);
         fill(colorscale,97,100);
@@ -271,6 +284,11 @@ public class Final extends Visual {
         {
             colorscale = 0;
         }
+    }
+
+    public void loop3()
+    {
+
     }
     
     // Class for cubes floating in space

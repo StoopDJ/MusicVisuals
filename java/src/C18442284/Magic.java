@@ -19,8 +19,8 @@ public class Magic extends Visual
         setFrameSize(256);
         colorMode(HSB);
         //noCursor();
-        startMinim();
-        loadAudio("Visuals.mp3");
+        //startMinim();
+        //loadAudio("Visuals.mp3");
         rectMode(CENTER);
         //noStroke();
         background(255);
@@ -34,16 +34,15 @@ public class Magic extends Visual
 	{
             if (key == ' ')
             {
-                getAudioPlayer().cue(0);
-                getAudioPlayer().play(); 
+               
             }	
 	}	
 
 
 	public void draw()
 	{
-        calculateAverageAmplitude();
-        float smoothedBoxSize = 0;
+        
+        
         lights();
         //stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
 
@@ -53,11 +52,6 @@ public class Magic extends Visual
 
         translate(width/2, height/2);
         rotate(angle2-angle1);
-
-       
-
-        float boxSize = 50 + (getAmplitude() * 300);//map(average, 0, 1, 100, 400); 
-        smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.2f);
 
         for(int j=0; j<2; j++)
         {

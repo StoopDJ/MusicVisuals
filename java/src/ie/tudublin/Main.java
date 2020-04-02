@@ -15,7 +15,7 @@ public class Main
 	{
 		String[] a = {"MAIN"};
 		//processing.core.PApplet.runSketch( a, new Draw());
-		processing.core.PApplet.runSketch( a, new Final());
+		processing.core.PApplet.runSketch( a, new Magic());
 		
 	}
 

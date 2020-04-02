@@ -72,7 +72,7 @@ public class Final extends Visual {
 
         minim = new Minim(this);
 
-        song = minim.loadFile("Dom Dolla - San Frandisco (Eli Brown Extended Remix).mp3");
+        song = minim.loadFile("Babalos - Snow crystal 185 bpm.mp3");
 
         fft = new FFT(song.bufferSize(), song.sampleRate());
 

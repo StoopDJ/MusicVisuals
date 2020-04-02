@@ -52,9 +52,9 @@ public class Final extends Visual {
 
     public void settings()
     {
-       //size(800, 800, P3D);
+       size(800, 800, P3D);
        //fullScreen(P3D, SPAN);
-        fullScreen ( P3D );
+       // fullScreen ( P3D );
     }
 
     public void setup() 
@@ -115,8 +115,8 @@ public class Final extends Visual {
 
     public void draw() 
     {
-        //loop1();
-        loop2();
+        loop1();
+       // loop2();
 
     }
 

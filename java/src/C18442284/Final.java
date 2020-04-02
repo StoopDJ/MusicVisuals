@@ -137,6 +137,10 @@ public class Final extends Visual {
             loop4();
             
         }
+        if (key == '5') {
+            loop5();
+            
+        }
 
    
     }
@@ -316,6 +320,18 @@ public class Final extends Visual {
         float x = random(width);
         line(x, 0, x, height);
        
+    }
+
+    public void loop5()
+    {
+         
+        loadPixels();
+
+        for(int i = 0; i < pixels.length; i++) {
+          pixels[i] = color(random(255));
+        }
+        
+        updatePixels();
     }
     
     // Class for cubes floating in space

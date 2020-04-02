@@ -55,10 +55,6 @@ public class Final extends Visual {
     int colorscale;  
     float angle; 
 
-    //loop3
-    float smoothedBoxSize = 0;
-
-
     public void settings()
     {
        //size(800, 800, P3D);
@@ -124,18 +120,23 @@ public class Final extends Visual {
 
     public void draw() 
     {
-       // loop1();
-       // loop2();
-    if (key == '1') {
-        loop1();
-         
-    }
-    if (key == '2') {
-        loop2();
-    }
-    if (key == '3') {
-        
-    }
+        // loop1();
+        // loop2();
+        if (key == '1') {
+            loop1();
+            
+        }
+        if (key == '2') {
+            loop2();
+        }
+        if (key == '3') {
+            loop3();
+            
+        }
+        if (key == '4') {
+            loop4();
+            
+        }
 
    
     }
@@ -288,7 +289,33 @@ public class Final extends Visual {
 
     public void loop3()
     {
+        noStroke();
+        background(255);
 
+        float x=0;
+		while(x<width){
+			float y=0;
+			while(y<height){
+				fill(random(0,150));
+				ellipse(x+25, y+25, 50, 50);
+				y=y+50;
+			}
+			x=x+50;
+        }
+
+    }
+
+    public void loop4()
+    {
+       // background(0);
+        fill(0, 10);
+        noStroke();
+        rect(0, 0, width, height);
+        
+        stroke(random(255), 255, 255);
+        float x = random(width);
+        line(x, 0, x, height);
+       
     }
     
     // Class for cubes floating in space

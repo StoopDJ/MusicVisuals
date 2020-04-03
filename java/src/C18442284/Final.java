@@ -55,11 +55,17 @@ public class Final extends Visual {
     int colorscale;  
     float angle; 
 
+    //loop6
+    	
+    float a = 0;
+    float b = 0;
+    float co = 0;
+    
     public void settings()
     {
        //size(800, 800, P3D);
        //fullScreen(P3D, SPAN);
-       fullScreen ( P3D );
+       fullScreen (P3D);
     }
 
     public void setup() 
@@ -68,7 +74,8 @@ public class Final extends Visual {
         noCursor();
         setFrameSize(256);
         colorMode(HSB, 360, 100, 100);
-               
+
+                    
 
         minim = new Minim(this);
 
@@ -139,6 +146,10 @@ public class Final extends Visual {
         }
         if (key == '5') {
             loop5();
+            
+        }
+        if (key == '6') {
+            loop6();
             
         }
 
@@ -333,6 +344,40 @@ public class Final extends Visual {
         
         updatePixels();
     }
+
+    public void loop6 ()
+    {
+          
+        colorMode(HSB,30);
+        stroke(255,0,255);
+        smooth();
+        strokeWeight(3);
+		
+
+        lights();
+        
+        stroke(co, 80, 80, 20);
+  
+
+        float x0 = map(sin(a), -1, 1, 20, width - 20);
+        float y0 = map(cos(a), -1, 1, 20, height - 20);
+        
+        float x1 = map(sin(b), -1, 1, 20, width - 20);
+        float y1 = map(cos(b), -1, 1, 20, height - 20);
+        
+        line(x0, y0, x1, y1);
+        
+        a = (float) (a + 0.071);
+        b = (float) (b + 0.07);
+        
+        co = co + 1;
+        if (co > 100) {
+          co = 0;
+        
+        }
+    }
+
+    
     
     // Class for cubes floating in space
     class Cube

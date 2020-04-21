@@ -6,6 +6,7 @@ import C18442284.Magic;
 import C18442284.MyVisual;
 import C18442284.Fill;
 import C18442284.Final;
+import C18442284.spiral;
 
 
 public class Main

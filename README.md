@@ -1,23 +1,23 @@
 # Music Visualiser Project
 
-Name:
+Name: Amir Akbari
 
-Student Number: 
-
-## Instructions
-- Fork this repository and use it a starter project for your assignment
-- Create a new package named your student number and put all your code in this package.
-- You should start by creating a subclass of ie.tudublin.Visual
-- There is an example visualiser called MyVisual in the example package
-- Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
+Student Number: C18442284
 
 # Description of the assignment
+Aim of this assignemt was something beautiful while listening to music. so i have created my own processing sketchs, I really liked this module so from the start of semaster I was working on this and created lots of sketches and for this assignment I had to choose best ones which goes and matches with the music in the background.
+I have chosen 6 classes for this assignment and I used FFT funtion for my music. I have put up all of this classes together in one big master file and made each one of them in a loop using keyboard so while im running the programe I can swap between each loop at any time I needed.
+there is 6 loops in my Final file but i only used 5 of them i think the other one wasnt matching the scene so i didnt use it at all.
 
 # Instructions
+my own code is in a new branch which is called "FINAL" there is another branch called "PROJECT" that was only my practice one and it is not finished.
+to view my codes please change the branch to "FINAL", I have created a folder with my student number C18442284 which all my codes are in it. i have couple of files there but again the main file whcih contains all the loops is Final.java
+simply run the Final.java and use the keyboard (#1-#6) u can loop through all 6 functions.
 
 # How it works
 
 # What I am most proud of in the assignment
+Im so proud of this assignemt, i made what was looking for one of the most thing im proud of it is the loop1 which i have worked on that for nearly 2 months 	
 
 # Markdown Tutorial
 

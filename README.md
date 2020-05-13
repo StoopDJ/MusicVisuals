@@ -5,14 +5,14 @@ Name: Amir Akbari
 Student Number: C18442284
 
 # Description of the assignment
-Aim of this assignemt was something beautiful while listening to music. so i have created my own processing sketchs, I really liked this module so from the start of semaster I was working on this and created lots of sketches and for this assignment I had to choose best ones which goes and matches with the music in the background.
-I have chosen 6 classes for this assignment and I used FFT funtion for my music. I have put up all of this classes together in one big master file and made each one of them in a loop using keyboard so while im running the programe I can swap between each loop at any time I needed.
+Aim of this assignemt was something beautiful while listening to music. so i have created my own processing sketches, I really liked this module so from the start of semaster I was working on this and created lots of sketches and for this assignment I had to choose best ones which goes and matches with the music in the background.
+I have chosen 6 classes for this assignment and I used FFT funtion for my music whcih would be react to the music. I have put up all of this classes together in one big master file and made each one of them in a loop using keyboard so while im running the programe I can swap between each loop at any time I needed.
 there is 6 loops in my Final file but i only used 5 of them i think the other one wasnt matching the scene so i didnt use it at all.
 
 # Instructions
 my own code is in a new branch which is called "FINAL" there is another branch called "PROJECT" that was only my practice one and it is not finished.
-to view my codes please change the branch to "FINAL", I have created a folder with my student number C18442284 which all my codes are in it. i have couple of files there but again the main file whcih contains all the loops is Final.java
-simply run the Final.java and use the keyboard (#1-#6) u can loop through all 6 functions.
+to view my codes please change the branch to "FINAL", I have created a folder with my student number C18442284 which all my codes are in it. I have couple of files there for this assignmetn but again the main file which would contains all the loops together is the Final.java
+simply run the Final.java and use the keyboard (#1-#6) u can loop through all 6 functions in any order you want, i have created a video of my order which i think would be the best match.
 
 # How it works
 
@@ -52,38 +52,8 @@ public void render()
 	ui.text(text, x + width * 0.5f, y + height * 0.5f);
 }
 ```
-
-So is this without specifying the language:
-
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-This is an image using a relative URL:
-
-![An image](images/p8.png)
-
-This is an image using an absolute URL:
-
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
-
 This is a youtube video:
 
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
+[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=QMWbjcXvcZo&t=8s) <iframe width="560" height="315" src="https://www.youtube.com/embed/QMWbjcXvcZo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-This is a table:
-
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
 

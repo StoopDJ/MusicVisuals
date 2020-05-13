@@ -54,6 +54,6 @@ public void render()
 ```
 This is a youtube video:
 
-[![YouTube](http://img.youtube.com/vi/v=QMWbjcXvcZo&t=8s/mq3.jpg)](https://www.youtube.com/watch?v=QMWbjcXvcZo&t=8s) 
+[![YouTube](http://img.youtube.com/vi/QMWbjcXvcZo/mq3.jpg)](https://www.youtube.com/watch?v=QMWbjcXvcZo&t=8s) 
 
 

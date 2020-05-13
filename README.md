@@ -54,6 +54,6 @@ public void render()
 ```
 This is a youtube video:
 
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=QMWbjcXvcZo&t=8s) <iframe width="560" height="315" src="https://www.youtube.com/embed/QMWbjcXvcZo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![YouTube](http://img.youtube.com/vi/QMWbjcXvcZo&t=8s/mq3.jpg)](https://www.youtube.com/watch?v=QMWbjcXvcZo&t=8s) 
 
 

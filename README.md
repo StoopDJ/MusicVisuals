@@ -133,8 +133,7 @@ This is Code:
 Im so proud of this assignemt, I made what was looking for one of the most thing im proud of it is the loop1 which i have worked on that for nearly 2 months.
 the Cube sketch which I called I new dimensions, I think I did a good job there and that is the one Im most proud of it.
 
-```
-This is a youtube video
+This is a youtube video:
 
 [![YouTube](http://img.youtube.com/vi/QMWbjcXvcZo/mq3.jpg)](https://www.youtube.com/watch?v=QMWbjcXvcZo&t=8s)
 

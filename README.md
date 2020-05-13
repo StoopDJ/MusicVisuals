@@ -16,6 +16,7 @@ simply run the Final.java and use the keyboard (#1-#6) u can loop through all 6 
 
 # How it works
 I have 6 diagram or basically 6 loops 
+
 1. loop1: is the best one  i think but i have so many codes for it so i wont be able to post it here because there is too much, but basically i would draw cubes in this sloop using my CUBE class and reatcs to the music and then i have draw the wave line on each side of screen top left, top right, bottom left and bottom right and these would react to the music aswell. for code please look at Final.java
 
 2. loop 2: it is a simple program which i draw a rect and using an angle to rotate it.
@@ -41,7 +42,7 @@ This is code:
             colorscale = 0;
         }
    }
-   
+```
 3. loop 3: this program again pne simle one i only draw ellipse and fill it randomly
 This is Code:
 ```Java
@@ -62,6 +63,7 @@ This is Code:
         }
 
     }
+```
 4. loop 4: its another simple one, just draws random lines.
 
 ```Java
@@ -77,6 +79,7 @@ This is Code:
         line(x, 0, x, height);
        
     }
+```
 5. loop 5: this one it too simple i did as practice i have it in my Final.java but i have used it in my video i think it would match the music and background so thats why i havent use it i had another idea before to use it but i changed my mind.
 ```Java
     public void loop5()
@@ -90,7 +93,7 @@ This is Code:
         
         updatePixels();
     }
-    
+```    
 6. loop 6: another simple idea, i saw a video on youtube i tired to do that but i couldnt i got this instead but i was happy at the start of it its not cool bur=t it gets cool and nice.it is simple enough it basically a line keeps getting bigger and goes around using Cos and Sin.
 
 ```Java
@@ -126,16 +129,15 @@ This is Code:
         }
     }
 ```
-
 # What I am most proud of in the assignment
 Im so proud of this assignemt, I made what was looking for one of the most thing im proud of it is the loop1 which i have worked on that for nearly 2 months.
 the Cube sketch which I called I new dimensions, I think I did a good job there and that is the one Im most proud of it.
 
 ```
-# This is a youtube video
+This is a youtube video
 
 [![YouTube](http://img.youtube.com/vi/QMWbjcXvcZo/mq3.jpg)](https://www.youtube.com/watch?v=QMWbjcXvcZo&t=8s)
-```
+
 
 
 
